@@ -1,32 +1,67 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license !== 'None') {
+    return `[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)`;
+  }
+  return '';
+};
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
+// Adding a \n makes a new line
 function renderLicenseLink(license) {
-  
+  if (license !== 'None') {
+    return `\n*[License](#license)\n`
 }
-
+return '';
+};
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
-
+function renderLicenseSection(license) {
+  if(license !== 'None') {
+    return `## License
+    Licensed under the ${license} license.`;
+} return ''; 
+}
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `# ${data.title}
-*[Title](#Title)
-*[Description](#description)
-*[Table of Contents](#Table of Contents)
-*[License](#License)
+${renderLicenseBadge(data.license)}
+
+## Description
+${data.description}
+
+## Table of Contents
+
 *[Installation](#Installation)
+
 *[Usage](#Usage)
+${renderLicenseLink(data.license)}
+
 *[Contrubuting](#contrubuting)
+
 *[Tests](#Tests)
+
 *[questions](#questions)
-*[Username](#username)
-*[Email](#email)
-*[Website](#website)
+
+## Installation
+
+${data.installation}
+
+## Usage
+${data.usage}
+${renderLicenseSection(data.license)}
+## Contrubuting
+${data.contrubuting}
+## Tests
+
+${data.tests}
+
+## Questions
+
+  Questions or concerns? contact me at ${data.email}
+  Review more of my work at [${data.github}](https://github.com/${data.github}/)
 
 `;
 }
