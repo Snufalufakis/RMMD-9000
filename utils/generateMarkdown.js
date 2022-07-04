@@ -24,17 +24,10 @@ function generateMarkdown(data) {
 *[Contrubuting](#contrubuting)
 *[Tests](#Tests)
 *[questions](#questions)
-$
-#
-$
-#
-$
-#
-$
-#
-*
-*
-*
+*[Username](#username)
+*[Email](#email)
+*[Website](#website)
+
 `;
 }
 
