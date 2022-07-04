@@ -1,38 +1,89 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const rmmd = require('rmmd');
-const writeFileAsync = rmmd.promisify(fs.writeFile);
+const utils = require('utils');
+const generateMarkdown = require('./utils/generateMarkdown');
 const questions =() =>
     inquirer.prompt([
             {
-                type: "input",
-                name: "the challenge",
-                message: "What is the Challenge?"
+                type: 'input',
+                name: 'Title',
+                message: 'What is the title of this project?',
             },
             {
                 type: "input",
-                name: "user story",
-                message: "What is the user story?"
+                name: "Description",
+                message: "What is the project about? enter a detailed description of the project."
             },
             {
                 type: "input",
-                name: "acceptance Critera",
-                message: "What is the Acceptance Critera?"
+                name: "Table of Contents",
+                message: "Table of Contents"
             },
             {
                 type: "input",
-                name: "Screenshots",
-                message: "link screenshot of the challenge here"
+                name: "Installation",
+                message: "What does the user need to run this app?"
             },
             {
                 type: "input",
-                name: "my process",
-                message: "What was the thought process of completing the challenge?"
+                name: "Usage",
+                message: "How is the app used?, List instructions"
             },
             {
                 type: "list",
-                name: "build with",
-                nessages: "What the main languages used in the challenge?"
-                choices: ["CSS", "JavaScript", "HTML", "NodeJs"]
-            }
-    ])
+                name: "License",
+                message: "What kind of license should your project have?",
+                choices: ['MIT', "APACHE", "GPL", "BSD", "None"]
+            },
+            {
+                type: "input",
+                name: "Contrubuting",
+                messages: "Who contributed to this project?",
+                
+            },
+            {
+                type: "input",
+                name: "Tests",
+                message: "What commands are needed to test the project app?"
+            },
+            {
+                type: "input",
+                name: "Questions",
+                message: "Contact info for inquiries ?"
+            },
+            {
+                type: "input",
+                name: "Username",
+                message: "Input you github username", 
+            },
+            {
+                type: "input",
+                name: "Email",
+                message: "What is your email address?",
+            },
+            {
+                type: "input",
+                name: "website", 
+                message: "website or link to profile"
+            },
+    ]);
+function writeToFile(fileName,data) {
+    fs.writeFile(fileName,data, function(err){
+        console.log(fileName);
+        console.log(data);
+        if (err) {
+            return console.log (err)
+        } else {
+            console.log("success");
+    }
+})};
+
+function init() {
+    inquirer.prompt(questions)
+    .then(function(data){
+        writeToFile("README.md", generateMarkdown(data));
+        console.log(data)
+    })
+
+}
+init();
