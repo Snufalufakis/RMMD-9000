@@ -61,7 +61,7 @@ ${data.tests}
 ## Questions
 
   Questions or concerns? contact me at ${data.email}
-  Review more of my work at [${data.github}](https://github.com/${data.github}/)
+  Review more of my work at [${data.username}](https://github.com/${data.usernameg}/)
 
 `;
 }
