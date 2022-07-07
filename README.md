@@ -14,7 +14,7 @@ This project is a markdown generator with a name play on Hal 9000 from the movie
 
 [License](#license)
 [Link](#link)
-
+[Screenshots](#screenshots)
 [Contrubuting](#contrubuting)
 
 [Tests](#Tests)
@@ -36,6 +36,10 @@ run npm i, run node index, follow instructions
 ## Link
 
 https://youtu.be/Ya4L1h556kw
+
+## Screenshots
+
+![](assets\img\screenshot-github.com-2022.07.07-11_34_20.png)
 
 ## Contrubuting
 
